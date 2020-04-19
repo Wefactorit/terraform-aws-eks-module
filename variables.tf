@@ -58,7 +58,7 @@ variable "project_trigramme" {
 variable "account_id" {
   description = "The AWS account ID"
   type        = string
-  default     = "arn:aws:iam::589079071798:role/OrganizationAccountAccessRole"
+  default     = "arn:aws:iam::<<account>>:role/OrganizationAccountAccessRole"
 }
 
 variable "region" {
@@ -104,11 +104,7 @@ variable "route53_parent_zone_id" {
 variable "asg_name" {
   description = "Auto scale group name"
   type        = string
-<<<<<<< HEAD
   default     = "prefix-gbi-gen-dev-ew3-pri-asg"
-=======
-  default     = "emobg-gbi-gen-dev-ew3-pri-asg"
->>>>>>> 066dbd7b888006ee2162c04186c31d13004fc27c
 }
 
 variable "image_id" {
@@ -285,8 +281,7 @@ variable "map_accounts" {
   type        = list(string)
 
   default = [
-    "936645143561",
-    "717039430256",
+    "",
   ]
 }
 
@@ -300,7 +295,7 @@ variable "map_roles" {
 
   default = [
     {
-      rolearn  = "arn:aws:iam::936645143561:role/OrganizationAccountAccessRole"
+      rolearn  = "arn:aws:iam::<<account>>:role/OrganizationAccountAccessRole"
       username = "admin"
       groups   = ["system:masters"]
     },
@@ -317,12 +312,12 @@ variable "map_users" {
 
   default = [
     {
-      userarn  = "arn:aws:iam::936645143561:role/OrganizationAccountAccessRole"
+      userarn  = "arn:aws:iam::<<account>>:role/OrganizationAccountAccessRole"
       username = "CI"
       groups   = ["system:masters"]
     },
     {
-      userarn  = "arn:aws:iam::936645143561:role/OrganizationAccountAccessRole"
+      userarn  = "arn:aws:iam::<<account>>:role/OrganizationAccountAccessRole"
       username = "Monitor"
       groups   = ["system:masters"]
     },
