@@ -2,15 +2,12 @@
 
 provider "aws" {
   region = "eu-west-1"
-   assume_role {
-    role_arn = "arn:aws:iam::936645143561:role/OrganizationAccountAccessRole"
-  }
+
 }
 
 /*terraform {
   backend "s3" {
 
-    role_arn  = "arn:aws:iam::936645143561:role/OrganizationAccountAccessRole"
     encrypt = false
     bucket  = "emobg-gba-bettercar-dev-inf-s3"
     region  = "eu-west-3"
