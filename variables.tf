@@ -9,7 +9,7 @@ variable "prefix" {
 
 variable "project_name" {
   description = "The projectname"
-  default     = "bettercar"
+  default     = "project"
   type        = string
 }
 
@@ -104,7 +104,7 @@ variable "route53_parent_zone_id" {
 variable "asg_name" {
   description = "Auto scale group name"
   type        = string
-  default     = "emobg-gbi-gen-dev-ew3-pri-asg"
+  default     = "prefix-gbi-gen-dev-ew3-pri-asg"
 }
 
 variable "image_id" {
@@ -124,7 +124,7 @@ variable "instance_type" {
 variable "hosted_zone_name" {
   description = "The hosted zone name"
   type        = string
-  default     = "dev.bettercar.emobg.io"
+  default     = "dev.application.prefix.io"
 }
 
 ######### VPC Configuration ##################
@@ -181,13 +181,13 @@ variable "redshift_subnets" {
 
 variable "ssh_sg_name" {
   description = "The ssh security group"
-  default     = "emobg-gbi-bettercar-dev-ew3-ssh-sg"
+  default     = "prefix-gbi-application-dev-ew3-ssh-sg"
   type        = string
 }
 
 variable "http_sg_name" {
   description = "The http security group"
-  default     = "emobg-gbi-bettercar-dev-ew3-http-sg"
+  default     = "prefix-gbi-application-dev-ew3-http-sg"
   type        = string
 }
 
@@ -196,13 +196,13 @@ variable "http_sg_name" {
 #######################Auto scale group #################
 variable "autoscaling_group_name" {
   description = "The auto scaling group"
-  default     = "emobg-gbi-bettercar-env-ew3-pri-front-sub-asg"
+  default     = "prefix-gbi-application-env-ew3-pri-front-sub-asg"
   type        = string
 }
 
 variable "launch_configuration_name" {
   description = "The launch configuration name"
-  default     = "emobg-gbi-bettercar-dev-ew3-pri-asg-lc"
+  default     = "prefix-gbi-application-dev-ew3-pri-asg-lc"
   type        = string
 }
 
@@ -211,13 +211,13 @@ variable "launch_configuration_name" {
 
 variable "s3_app_name" {
   description = "The application bucket name "
-  default     = "emobg-gba-bettercar-dev-app-s3"
+  default     = "prefix-gba-application-dev-app-s3"
   type        = string
 }
 
 variable "s3_inf_name" {
   description = "The application bucket name "
-  default     = "emobg-gba-bettercar-dev-inf-s3"
+  default     = "prefix-gba-application-dev-inf-s3"
   type        = string
 }
 
@@ -246,7 +246,7 @@ variable "alb_name" {
 
 ###################KEY Pair ########################
 variable "key_pair_admin" {
-  default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDdjr36/O+sLpcD53mZ407fX+hRHOn9X2/RzLAgI1qVfuwyHKC6ig5uTSEu76qNE5g0A6dXZvGm13UoxfkAc2kmy83TC0s3Fs+pvsyFcVIcYiW4f8RgQUgRe1M2pkh+K361kfwtsO3nmBIEeLAGxDKhj4Ku1v7B88+HvNJvoNbxRBuUcAt11zS2PHCfE0oAlPVVNzShf2Gmuu5lxC4rrX9nVPze00LSxdd5KcFZ+8lLdc7lnuwfxDwoBeCvjZLR2MKgH82TAGJdAFmchMKu0WyElOy4oLt5uClBSqXSqKiK66E83iDKoTXmaclucYFdEyVAbO9LTP8E3P1Ka95olaEiJMA9JUk+T8Ehmjnubn5Jp91oSmdWvR+m8/32Zj9PwIAfdPO8gqhX/0RzGbMWoxeL+qDGImtBtzzA+/3UNEYfX5M4rJYgElMfTE2lBszGcgA4h8gpCYUay4+y90Fcg3dVY7ZYuxy6XfFhSctkUCu+JP1nqjXGjcFsu6+n4xTSxUfeIwsi7jsgl6kLt2apU3blhr4JRwc4TDVFSgBwadGhLHlR5s5bqRyJN0d8baK6c+H5z5Lqvjr0+db4CTZGMux3jeQcjW+XvAxgpPsg7lBe5WklpYIDNEzYfLaRVYZSvfHUG6Qo2z6Ov8psCt0z9FLWpE/l72p5mIolQOqynbHwvw== Deployer@emogb.io"
+  default = "ssh-rsa RzLAgI1qVfuwyHKC6ig5uTSEu76qNE5g0A6dXZvGm13UoxfkAc2kmy83TC0s3Fs+pvsyFcVIcYiW4f8RgQUgRe1M2pkh+K361kfwtsO3nmBIEeLAGxDKhj4Ku1v7B88+HvNJvoNbxRBuUcAt11zS2PHCfE0oAlPVVNzShf2Gmuu5lxC4rrX9nVPze00LSxdd5KcFZ+8lLdc7lnuwfxDwoBeCvjZLR2MKgH82TAGJdAFmchMKu0WyElOy4oLt5uClBSqXSqKiK66E83iDKoTXmaclucYFdEyVAbO9LTP8E3P1Ka95olaEiJMA9JUk+T8Ehmjnubn5Jp91oSmdWvR+m8/32Zj9PwIAfdPO8gqhX/0RzGbMWoxeL+qDGImtBtzzA+/3UNEYfX5M4rJYgElMfTE2lBszGcgA4h8gpCYUay4+y90Fcg3dVY7ZYuxy6XfFhSctkUCu+JP1nqjXGjcFsu6+n4xTSxUfeIwsi7jsgl6kLt2apU3blhr4JRwc4TDVFSgBwadGhLHlR5s5bqRyJN0d8baK6c+H5z5Lqvjr0+db4CTZGMux3jeQcjW+XvAxgpPsg7lBe5WklpYIDNEzYfLaRVYZSvfHUG6Qo2z6Ov8psCt0z9FLWpE/l72p5mIolQOqynbHwvw== Deployer@prefix.io"
 }
 
 
