@@ -104,7 +104,11 @@ variable "route53_parent_zone_id" {
 variable "asg_name" {
   description = "Auto scale group name"
   type        = string
+<<<<<<< HEAD
   default     = "prefix-gbi-gen-dev-ew3-pri-asg"
+=======
+  default     = "emobg-gbi-gen-dev-ew3-pri-asg"
+>>>>>>> 066dbd7b888006ee2162c04186c31d13004fc27c
 }
 
 variable "image_id" {
@@ -125,6 +129,7 @@ variable "hosted_zone_name" {
   description = "The hosted zone name"
   type        = string
   default     = "dev.application.prefix.io"
+
 }
 
 ######### VPC Configuration ##################
