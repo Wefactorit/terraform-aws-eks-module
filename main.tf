@@ -1,13 +1,13 @@
 
 
 provider "aws" {
-  region = "ci-sdx-infr-ew3"
+  region = "eu-west-3"
 
 }
 
 terraform {
   backend "s3" {
-    region  = "ci-sdx-infr-ew3"
+    bucket  = "ci-sdx-infr-ew3"
     encrypt = false
     key     = "terraform/aws-eks.tfstate"
   }
