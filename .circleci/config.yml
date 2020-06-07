@@ -5,8 +5,8 @@ workflows:
     jobs:
       - validate
       - plan:
-        requires:
-          - validate
+          requires:
+            - validate
 
 
 
