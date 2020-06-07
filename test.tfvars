@@ -1,4 +1,4 @@
-
+region = "eu-west-3"
 
 project_name                 = "example"
 project_trigramme            = "exp"

@@ -20,14 +20,14 @@ jobs:
         - image: hashicorp/terraform
     steps:
         - checkout
-        - run: terraform init
+        - run: terraform init -backend-config=test.tfvars
         - run: terraform validate
   plan:
     docker:
         - image: hashicorp/terraform
     steps:
         - checkout
-        - run: terraform init
+        - run: terraform init -backend-config=test.tfvars
         - run: terraform plan --var-file="test.tfvars"
 
 
