@@ -47,7 +47,7 @@ jobs:
     steps:
         - checkout
         - run: terraform init -backend-config=test.tfvars
-        - run: terraform apply --var-file="test.tfvars"
+        - run: terraform apply -auto-approve --var-file="test.tfvars"
 
 
   destroy:
@@ -56,4 +56,4 @@ jobs:
     steps:
         - checkout
         - run: terraform init -backend-config=test.tfvars
-        - run: terraform apply --var-file="test.tfvars"
+        - run: terraform destroy -auto-approve --var-file="test.tfvars"
