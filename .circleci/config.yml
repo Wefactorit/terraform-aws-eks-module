@@ -10,5 +10,19 @@ jobs:
     steps:
         - checkout
         - run: terraform init
+  test:
+    docker:
+        - image: hashicorp/terraform
+    steps:
+        - checkout
         - run: terraform validate
-        - run: terraform plan -var-file="sdx.tfvars"
+workflows:
+  version: 2
+  init_and_test:
+    jobs:
+      - build
+      - test
+
+
+  #      - run: terraform validate
+  #      - run: terraform plan -var-file="sdx.tfvars"
