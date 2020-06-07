@@ -3,12 +3,12 @@ version: 2
 jobs:
   build:
     branches:
-      only:
-        - master
+      #only:
+      #  - master
     docker:
         - image: hashicorp/terraform
     steps:
         - checkout
         - run: terraform init
         - run: terraform validate
-        - run: terraform plan  -var-file="sdx.tfvars"
+        - run: terraform plan -var-file="sdx.tfvars"
