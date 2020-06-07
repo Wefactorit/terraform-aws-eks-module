@@ -7,8 +7,7 @@ workflows:
       - plan:
           requires:
             - validate
-            context:
-              - wefit_aws
+          context: wefit_aws
 
 
 
