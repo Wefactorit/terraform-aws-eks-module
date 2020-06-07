@@ -42,9 +42,10 @@ jobs:
 
 
   deploy:
-    branches:
-      only:
-        - master
+    filter:
+      branches:
+        only:
+          - master
     docker:
         - image: hashicorp/terraform
     steps:
@@ -54,9 +55,10 @@ jobs:
 
 
   destroy:
-    branches:
-      only:
-        - master
+    filter:
+      branches:
+        only:
+          - master
     docker:
         - image: hashicorp/terraform
     steps:
