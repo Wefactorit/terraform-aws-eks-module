@@ -8,7 +8,6 @@ workflows:
           requires:
             - validate
           context: wefit_aws
-<<<<<<< HEAD
       - deploy:
           requires:
             - validate
@@ -19,8 +18,6 @@ workflows:
             - deploy
           context: wefit_aws
 
-=======
->>>>>>> master
 
 
 
@@ -42,7 +39,6 @@ jobs:
         - checkout
         - run: terraform init -backend-config=test.tfvars
         - run: terraform plan --var-file="test.tfvars"
-<<<<<<< HEAD
 
 
   deploy:
@@ -61,5 +57,3 @@ jobs:
         - checkout
         - run: terraform init -backend-config=test.tfvars
         - run: terraform apply --var-file="test.tfvars"
-=======
->>>>>>> master
