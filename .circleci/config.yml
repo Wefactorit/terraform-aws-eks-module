@@ -17,7 +17,7 @@ jobs:
     steps:
         - checkout
         - run: terraform init
-        - run: terraform plan -vars-file="test.tfvars"
+        - run: terraform plan --var-file="sdx.tfvars"
 workflows:
   version: 2
   init_and_test:
