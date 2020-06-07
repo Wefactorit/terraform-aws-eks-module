@@ -12,7 +12,7 @@ instance_type     = "t2.medium"
 
 ####EKS########
 eks-cw-logging   = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
-eks_cluster_name = "test"
+eks_cluster_name = "cicluster"
 image_id         = "ami-0b4fcab6b34c65c9f"
 
 #############ASG##############
