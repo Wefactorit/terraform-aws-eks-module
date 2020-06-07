@@ -1,4 +1,4 @@
-bucket            = "ci-sdx-infr-ew3"
+
 project_name      = "example"
 project_trigramme = "exp"
 region_trigram    = "ew3"
