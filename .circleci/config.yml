@@ -23,9 +23,9 @@ workflows:
   init_and_test:
     jobs:
       - validate
-          context: "wefit_aws"
+          context: wefit_aws
       - plan
-          context: "wefit_aws"
+          context: wefit_aws
 
 
   #      - run: terraform validate
