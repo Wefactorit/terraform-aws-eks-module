@@ -1,18 +1,17 @@
 
 
 provider "aws" {
+  region = "eu-west-3"
 
 }
 
-/*terraform {
+terraform {
   backend "s3" {
-
+    bucket  = "ci-sdx-infr-ew3"
     encrypt = false
-    bucket  = "emobg-gba-bettercar-dev-inf-s3"
-    region  = "eu-west-3"
-    key     = "terraform/terraform.tfstate"
+    key     = "terraform/aws-eks.tfstate"
   }
-}*/
+}
 
 
 

@@ -1,7 +1,8 @@
 module "eks" {
-  source       = "terraform-aws-modules/eks/aws"
-  cluster_name = var.eks_cluster_name
-  subnets      = module.vpc.private_subnets
+  source                    = "terraform-aws-modules/eks/aws"
+  cluster_name              = var.eks_cluster_name
+  subnets                   = module.vpc.private_subnets
+  cluster_enabled_log_types = var.eks-cw-logging
 
   tags = {
     Environment = var.env
@@ -22,10 +23,10 @@ module "eks" {
       max_capacity     = var.max-size
       min_capacity     = var.min-size
 
-      instance_type = "m5.large"
+      instance_type = "t3.small"
       k8s_labels = {
         Environment = var.env
-        AppRole  = var.AppRole
+        AppRole     = var.AppRole
         ManagedBy   = var.ManagedBy
       }
       additional_tags = {
