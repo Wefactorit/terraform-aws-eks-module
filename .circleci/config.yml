@@ -29,9 +29,3 @@ jobs:
         - checkout
         - run: terraform init -backend-config=test.tfvars
         - run: terraform plan --var-file="test.tfvars"
-
-
-
-
-  #      - run: terraform validate
-  #      - run: terraform plan -var-file="sdx.tfvars"
