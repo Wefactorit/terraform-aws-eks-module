@@ -10,12 +10,14 @@ jobs:
     steps:
         - checkout
         - run: terraform init
+        - run: terraform validate
   test:
     docker:
         - image: hashicorp/terraform
     steps:
         - checkout
-        - run: terraform validate
+        - run: terraform init
+        - run: terraform plan
 workflows:
   version: 2
   init_and_test:
