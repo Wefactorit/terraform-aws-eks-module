@@ -1,20 +1,19 @@
-region = "eu-west-3"
 
-project_name                 = "example"
-project_trigramme            = "exp"
-region_trigram               = "ew1"
-region                       = "eu-west-1"
-application                  = "gen"
-env                          = "sdx"
-owner                        = "Devopsteam"
-AppRole                      = "generic_app"
-ManagedBy                    = "Devopsteam"
-instance_type                = "t2.medium"
+project_name      = "example"
+project_trigramme = "exp"
+region_trigram    = "ew1"
+region            = "eu-west-1"
+application       = "gen"
+env               = "sdx"
+owner             = "Devopsteam"
+AppRole           = "generic_app"
+ManagedBy         = "Devopsteam"
+instance_type     = "t2.medium"
 
 ####EKS########
-eks-cw-logging               = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
-eks_cluster_name             = "test"
-image_id                     = "ami-0c0b45cac6250d566"
+eks-cw-logging   = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
+eks_cluster_name = "test"
+image_id         = "ami-0c0b45cac6250d566"
 
 #############ASG##############
 desired-capacity = 3
