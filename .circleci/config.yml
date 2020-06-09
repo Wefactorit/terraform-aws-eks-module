@@ -20,6 +20,11 @@ workflows:
             - deploy
           context: wefit_aws
 
+      - clean:
+          requires:
+            - destroy
+          context
+
 
 
 
