@@ -8,24 +8,31 @@ workflows:
           requires:
             - validate
           context: wefit_aws
+
       - deploy:
           requires:
             - validate
             - plan
           context: wefit_aws
+          filters:
+            branches:
+              only: master
       - destroy:
           requires:
             - deploy
           context: wefit_aws
+          filters:
+            branches:
+              only: master
 
 
 
 
 jobs:
   validate:
-    #branches:
-      #only:
-      #  - master
+    branches:
+      only:
+        - master
     docker:
         - image: hashicorp/terraform
     steps:
@@ -33,6 +40,9 @@ jobs:
         - run: terraform init -backend-config=test.tfvars
         - run: terraform validate
   plan:
+    branches:
+      only:
+       - master
     docker:
         - image: hashicorp/terraform
     steps:
@@ -42,10 +52,9 @@ jobs:
 
 
   deploy:
-    filter:
-      branches:
-        only:
-          - master
+    branches:
+      only:
+        - master
     docker:
         - image: hashicorp/terraform
     steps:
@@ -55,10 +64,9 @@ jobs:
 
 
   destroy:
-    filter:
-      branches:
-        only:
-          - master
+    branches:
+      only:
+        - master
     docker:
         - image: hashicorp/terraform
     steps:
