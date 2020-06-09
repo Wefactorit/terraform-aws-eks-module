@@ -70,7 +70,7 @@ jobs:
         - run: terraform init -backend-config=test.tfvars
         - run: terraform destroy -auto-approve --var-file="test.tfvars"
 
- clean:
+  clean:
     filters:
       branches:
         only:
