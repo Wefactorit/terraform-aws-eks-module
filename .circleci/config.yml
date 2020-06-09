@@ -27,9 +27,6 @@ workflows:
           requires:
             - deploy
           context: wefit_aws
-          filters:
-            branches:
-              only: master
 
 
 
