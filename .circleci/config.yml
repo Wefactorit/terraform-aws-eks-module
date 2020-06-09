@@ -18,13 +18,12 @@ workflows:
             - validate
             - plan
           context: wefit_aws
-          filters:
-            branches:
-              only: master
+
       - destroy:
           filter:
             branch:
-              - master
+              only:
+                - master
           requires:
             - deploy
           context: wefit_aws
