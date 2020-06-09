@@ -70,13 +70,13 @@ jobs:
         - run: terraform init -backend-config=test.tfvars
         - run: terraform destroy -auto-approve --var-file="test.tfvars"
 
-clean:
-  filters:
-    branches:
-      only:
-        - master
-  docker:
-      - image: wefactorit/ci-runner:0.0.2
-  steps:
-      - checkout
-      - run: aws logs  delete-log-group --log-group-name cicluster2 --region eu-west-3
+ clean:
+    filters:
+      branches:
+        only:
+          - master
+    docker:
+        - image: wefactorit/ci-runner:0.0.2
+    steps:
+        - checkout
+        - run: aws logs  delete-log-group --log-group-name cicluster --region eu-west-3
