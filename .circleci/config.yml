@@ -10,8 +10,8 @@ workflows:
           context: wefit_aws
 
       - deploy:
-          filter:
-            branch:
+          filters:
+            branches:
               only:
                 - master
           requires:
@@ -20,8 +20,8 @@ workflows:
           context: wefit_aws
 
       - destroy:
-          filter:
-            branch:
+          filters:
+            branches:
               only:
                 - master
           requires:
