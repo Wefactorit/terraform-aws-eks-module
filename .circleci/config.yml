@@ -1,4 +1,4 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
+#Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 workflows:
   version: 2
   init_and_test:
@@ -9,13 +9,27 @@ workflows:
             - validate
           context: wefit_aws
 
+      - deploy:
+          requires:
+            - validate
+            - plan
+          context: wefit_aws
+
+      - destroy:
+          requires:
+            - deploy
+          context: wefit_aws
+
+      - clean:
+          requires:
+            - destroy
+          context: wefit_aws
+
+
 
 
 jobs:
   validate:
-    #branches:
-      #only:
-      #  - master
     docker:
         - image: hashicorp/terraform
     steps:
@@ -29,3 +43,40 @@ jobs:
         - checkout
         - run: terraform init -backend-config=test.tfvars
         - run: terraform plan --var-file="test.tfvars"
+
+
+  deploy:
+    filters:
+      branches:
+        only:
+          - master
+    docker:
+        - image: hashicorp/terraform
+    steps:
+        - checkout
+        - run: terraform init -backend-config=test.tfvars
+        - run: terraform apply -auto-approve --var-file="test.tfvars"
+
+
+  destroy:
+    filters:
+      branches:
+        only:
+          - master
+    docker:
+        - image: hashicorp/terraform
+    steps:
+        - checkout
+        - run: terraform init -backend-config=test.tfvars
+        - run: terraform destroy -auto-approve --var-file="test.tfvars"
+
+  clean:
+    filters:
+      branches:
+        only:
+          - master
+    docker:
+        - image: wefactorit/ci-runner:0.0.2
+    steps:
+        - checkout
+        - run: aws logs  delete-log-group --log-group-name /aws/eks/cicluster/cluster --region eu-west-3

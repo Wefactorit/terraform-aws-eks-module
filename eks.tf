@@ -30,7 +30,9 @@ module "eks" {
         ManagedBy   = var.ManagedBy
       }
       additional_tags = {
-        ExtraTag = "example"
+        ExtraTag                                        = "example"
+        "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared"
+        "kubernetes.io/role/elb"                        = "1"
       }
     }
   }
