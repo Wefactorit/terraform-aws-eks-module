@@ -3,6 +3,7 @@ module "eks" {
   cluster_name              = var.eks_cluster_name
   subnets                   = module.vpc.private_subnets
   cluster_enabled_log_types = var.eks-cw-logging
+  cluster_version           = var.eks_cluster_version
 
   tags = {
     Environment = var.env
