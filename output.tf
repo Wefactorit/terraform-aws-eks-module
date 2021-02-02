@@ -99,10 +99,6 @@ output "this_customer_gateway" {
   value       = module.vpc.this_customer_gateway
 }
 
-output "this_nlb_dns_name_nlb" {
-  description = "The DNS name of the load balancer."
-  value       = module.nlb.this_lb_dns_name
-}
 
 
 
