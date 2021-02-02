@@ -274,6 +274,12 @@ variable "eks_cluster_name" {
   type = string
 }
 
+variable "eks_cluster_version" {
+  description = "The eks version"
+  default =  "1.18"
+  type = string
+}
+
 
 
 variable "map_accounts" {
