@@ -13,7 +13,6 @@ module "vpc" {
 
   azs                 = var.azs
   public_subnets      = var.public_subnets
-  database_subnets    = var.database_subnets
   private_subnets     = var.private_subnets
   external_nat_ip_ids = aws_eip.nat.*.id
 
