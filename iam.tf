@@ -31,6 +31,25 @@ resource "aws_iam_role_policy_attachment" "cluster-AmazonEKSServicePolicy" {
 }
 
 # NODES
+resource "aws_iam_role" "node" {
+  name = "${var.eks_cluster_name}-eks-node-role"
+
+  assume_role_policy = <<POLICY
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "ec2.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+POLICY
+}
+
 resource "aws_iam_role_policy_attachment" "node-AmazonEKSWorkerNodePolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
   role       = aws_iam_role.node.name
