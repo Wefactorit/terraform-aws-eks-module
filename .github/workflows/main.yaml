@@ -5,7 +5,7 @@ on:
     - master
   pull_request:
 env:
-  TF_ACTIONS_VERSION: 0.12.13 
+  TF_ACTIONS_VERSION: latest 
 jobs:
   check-format:
     name: Check format
@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@master
 
     - name: 'Terraform Format'
-      uses: hashicorp/terraform-github-actions@master
+      uses: hashicorp/setup-terraform@v1 
       with:
         tf_actions_version: ${{ env.TF_ACTIONS_VERSION }}
         tf_actions_subcommand: 'fmt'
@@ -29,10 +29,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: hashicorp/setup-terraform@v1 
 
     - name: 'Terraform Init - stack'
-      uses: hashicorp/terraform-github-actions@master
+      uses: hashicorp/setup-terraform@v1 
       with:
         tf_actions_version: ${{ env.TF_ACTIONS_VERSION }}
         tf_actions_subcommand: 'init'
@@ -42,7 +42,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: 'Terraform Validate - stack'
-      uses: hashicorp/terraform-github-actions@master
+      uses: hashicorp/setup-terraform@v1 
       with:
         tf_actions_version: ${{ env.TF_ACTIONS_VERSION }}
         tf_actions_subcommand: 'validate'
