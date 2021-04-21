@@ -5,7 +5,7 @@ on:
     - master
   pull_request:
 env:
-  TF_ACTIONS_VERSION: latest
+  TF_ACTIONS_VERSION: 0.13 
 jobs:
   check-format:
     name: Check format
