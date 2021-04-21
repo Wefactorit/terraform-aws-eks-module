@@ -21,3 +21,11 @@ provider "helm" {
   load_config_file       = false
   version                = "~> 1.0.0"
 }
+
+
+terraform {
+  backend "s3" {
+    region = "eu-west-3"
+    key = "terraform/terraform-eks.tfstate"
+  }
+}
