@@ -1,1 +1,1 @@
-bucket="ci-sdx-infr-ew3"
+bucket = "ci-sdx-infr-ew3"

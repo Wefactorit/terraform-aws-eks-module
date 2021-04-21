@@ -62,7 +62,7 @@ module "node-sg" {
   egress_rules       = ["all-all"]
 
   tags = {
-    Name                                        = "${var.eks_cluster_name}-eks-node-sg"
+    Name                                            = "${var.eks_cluster_name}-eks-node-sg"
     "kubernetes.io/cluster/${var.eks_cluster_name}" = "owned"
   }
 }

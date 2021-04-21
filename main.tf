@@ -26,6 +26,6 @@ provider "helm" {
 terraform {
   backend "s3" {
     region = "eu-west-3"
-    key = "terraform/terraform-eks.tfstate"
+    key    = "terraform/terraform-eks.tfstate"
   }
 }

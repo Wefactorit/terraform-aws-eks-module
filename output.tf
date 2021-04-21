@@ -142,6 +142,6 @@ output "node_groups" {
 
 output "eks_cluster_id" {
   description = "The EKS cluster ID "
-  value = module.eks.cluster_id
+  value       = module.eks.cluster_id
 }
 

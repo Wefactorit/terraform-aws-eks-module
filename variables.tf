@@ -63,8 +63,8 @@ variable "account_id" {
 
 variable "region" {
   description = "The terageted region"
-  type = string
-  default = "eu-west-3"
+  type        = string
+  default     = "eu-west-3"
 }
 
 
@@ -264,20 +264,20 @@ variable "key_pair_name" {
 
 variable "eks-cw-logging" {
   description = "The type of logging"
-  type = list
+  type        = list
 
 }
 
 variable "eks_cluster_name" {
   description = "The eks auto scaling grou name"
-  default =  "btc-eks-dev-ew3"
-  type = string
+  default     = "btc-eks-dev-ew3"
+  type        = string
 }
 
 variable "eks_cluster_version" {
   description = "The eks version"
-  default =  "1.18"
-  type = string
+  default     = "1.18"
+  type        = string
 }
 
 
@@ -362,5 +362,5 @@ variable "public-kublet-extra-args" {
 
 variable "local_profile" {
   description = "The local profile"
-  type = string
+  type        = string
 }

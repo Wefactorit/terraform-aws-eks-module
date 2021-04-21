@@ -2,7 +2,7 @@
 
 resource "aws_eip" "nat" {
   count = 1
-  vpc = true
+  vpc   = true
 }
 
 module "vpc" {
@@ -25,14 +25,14 @@ module "vpc" {
 
 
   public_subnet_tags = {
-    Name = var.vcp_pub_sub_tags
+    Name                                            = var.vcp_pub_sub_tags
     "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared"
-    "kubernetes.io/role/elb"                      = "1"
+    "kubernetes.io/role/elb"                        = "1"
   }
 
   private_subnet_tags = {
     "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared"
-    "kubernetes.io/role/internal-elb"             = "1"
+    "kubernetes.io/role/internal-elb"               = "1"
   }
 
   database_subnet_tags = {
@@ -40,12 +40,12 @@ module "vpc" {
   }
 
   tags = {
-    Owner     = var.owner
-    Env       = var.env
-    Project   = var.application
-    AppRole   = var.AppRole
-    ManagedBy = var.ManagedBy
-    Name                                        = "${var.eks_cluster_name}-vpc"
+    Owner                                           = var.owner
+    Env                                             = var.env
+    Project                                         = var.application
+    AppRole                                         = var.AppRole
+    ManagedBy                                       = var.ManagedBy
+    Name                                            = "${var.eks_cluster_name}-vpc"
     "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared"
   }
 }
